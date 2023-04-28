@@ -49,10 +49,10 @@ export default class TheHeader extends Component {
           .replace(',', '')
           .replace(',', '')}
       </ul>
+      <a href="#/about" class="user">
+        <img src="https://tistory1.daumcdn.net/tistory/6081640/attach/3f3363ce559e4391a84004653065d4a4" alt="user">
+      </a>
     </nav>
-    <a href="#/about" class="user">
-      <img src="https://tistory1.daumcdn.net/tistory/6081640/attach/3f3363ce559e4391a84004653065d4a4" alt="user">
-    </a>
     `
     this.el.classList.add('header')
   }

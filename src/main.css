@@ -58,6 +58,90 @@ body {
   transition: .5s;
 }
 
+@media (max-width: 390px) {
+  #root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .header.header {
+    width: 100%;
+    padding-top: 50px;
+    padding-left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header .user {
+    padding-top: 30px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .container .headline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    translate: 80px 0px;
+  }
+
+  .container .headline h1 {
+    display: block;
+    font-size: 70px;
+    display: block;
+  }
+
+  .container .headline .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 30px;
+  }
+
+  .container .headline .logo img {
+    width: 120px;
+    display: block;
+    translate: 0px 0px;
+  }
+
+  .container .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-left: 130px;
+  }
+
+  .container .search input {
+    width: 100px;
+  }
+
+  .container .movie-List {
+    margin-left: 140px;
+  }
+
+  .container .movies a {
+    width: 160px;
+    height: 240px;
+
+  }
+
+  .container .search button {}
+}
+
 .header:hover {
   background-color: var(--color-white-10);
 }
@@ -678,4 +762,12 @@ body {
   100% {
     transform: translateX(100%);
   }
+}
+
+.not-found {
+  margin: 30px;
+  font-size: 50px;
+  font-weight: 700;
+  color: var(--color-white-20);
+  text-align: center;
 }
