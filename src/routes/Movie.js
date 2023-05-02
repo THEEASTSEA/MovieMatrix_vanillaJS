@@ -34,7 +34,6 @@ export default class Movie extends Component {
             </div>
           </div>
         </div>
-        <button class="btn btn-back skeleton"></button>
       </div>
     `
 

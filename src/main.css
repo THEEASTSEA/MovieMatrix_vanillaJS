@@ -616,9 +616,9 @@ body {
   display: block;
   position: absolute;
   font-family: 'Codystar', cursive;
-  top: 120px;
-  left: 420px;
-  font-size: 50px;
+  bottom: 110px;
+  left: 230px;
+  font-size: 40px;
   font-weight: 900;
   color: var(--color-green);
 }
