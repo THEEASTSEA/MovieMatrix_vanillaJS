@@ -172,7 +172,7 @@ keyboard_backspace
     const noPoster = this.el.querySelector('.poster')
     if (noPoster.style.backgroundImage === 'url("N/A")') {
       noPoster.style.backgroundImage =
-        'url("https://lh3.googleusercontent.com/hAlBrNVUAJIixL329Hnp136C4LSb-_7GrAiO-8IJjjBzyIyNb13gz2NVj_4CMyl_pn7Nn6a3XTX_hDAARBzvpHAQSMbd4DcKWtxelRX79g")'
+        'url("https://static-00.iconduck.com/assets.00/flying-saucer-emoji-2048x1837-wqaxl6sz.png")'
     } else {
       noPoster.style.backgroundImage = `url(${bigPoster})`
     }

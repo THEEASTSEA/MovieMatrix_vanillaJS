@@ -22,7 +22,7 @@ export const searchMovies = async page => {
     store.state.message = ''
   }
   const defaultPosterUrl =
-    'https://lh3.googleusercontent.com/hAlBrNVUAJIixL329Hnp136C4LSb-_7GrAiO-8IJjjBzyIyNb13gz2NVj_4CMyl_pn7Nn6a3XTX_hDAARBzvpHAQSMbd4DcKWtxelRX79g'
+    'https://static-00.iconduck.com/assets.00/flying-saucer-emoji-2048x1837-wqaxl6sz.png'
 
   const res = await fetch(
     `https://www.omdbapi.com/?apikey=7035c60c&s=${store.state.searchText}&y=${store.state.searchYear}&page=${page}`
