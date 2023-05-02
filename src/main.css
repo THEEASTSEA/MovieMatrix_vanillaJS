@@ -98,7 +98,7 @@ body {
   }
 
   .container .headline h1 {
-    text-align: left;
+    text-align: center;
   }
 
   .container .headline .logo {
@@ -137,6 +137,11 @@ body {
     align-items: center;
   }
 
+  .container .movie-List .message {
+    width: 300px;
+    background-color: var(--color-white-5);
+  }
+
   .container .movies a {
     width: 150px;
     height: 210px;
@@ -145,6 +150,8 @@ body {
   .container .search button {}
 
   .the-movie {}
+
+
 
   .the-movie .inner {
     display: flex;
@@ -342,7 +349,7 @@ body {
   height: 50px;
   color: var(--color-white-50);
   font-size: 14px;
-  background-color: var(--color-white-10);
+  background-color: var(--color-white-5);
   transition: 0.5s;
 }
 
