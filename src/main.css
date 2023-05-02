@@ -74,10 +74,11 @@ body {
   }
 
   .header nav ul {
-    min-width: 200px;
-    flex-grow: 0;
+    min-width: 1px;
+    /* flex-grow: 0;
     padding-left: 30px;
-    gap: 40px;
+    margin-left: -30px;
+    gap: 40px; */
   }
 
   .header {}
@@ -99,6 +100,7 @@ body {
 
   .container .headline h1 {
     text-align: center;
+    font-size: 55px;
   }
 
   .container .headline .logo {
@@ -212,7 +214,7 @@ body {
 }
 
 .header nav ul {
-  min-width: 400px;
+  /* min-width: 400px; */
   display: flex;
   gap: 20px;
 }
