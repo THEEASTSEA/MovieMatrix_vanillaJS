@@ -17,7 +17,7 @@ export default class MyList extends Component {
 
   render() {
     this.el.innerHTML = /*html*/ `
-      <h2>My List</h2>
+      <h2>My Movie</h2>
       <div class="movie-list"></div>
     `
     const movieList = new MovieList({
