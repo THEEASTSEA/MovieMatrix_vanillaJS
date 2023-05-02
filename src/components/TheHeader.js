@@ -12,8 +12,8 @@ export default class TheHeader extends Component {
             href: '#/'
           },
           {
-            name: 'MOVIE',
-            href: '#/movie?id=tt2015381'
+            name: 'MY MOVIE',
+            href: '#/mymovie'
           },
           {
             name: 'ABOUT',

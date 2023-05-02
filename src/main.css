@@ -56,6 +56,7 @@ body {
   display: flex;
   align-items: center;
   transition: .5s;
+  translate: 0px 0px;
 }
 
 @media (max-width: 844px) {
@@ -87,6 +88,7 @@ body {
     display: block;
 
   }
+
 
   .headline {
     display: flex;
@@ -153,21 +155,17 @@ body {
 
   .the-movie {}
 
+  .the-movie .btn-back {}
 
+  .the-movie .posterinner {
+    flex-direction: column;
+  }
 
   .the-movie .inner {
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    padding-bottom: 0px;
-    margin: 0px;
-    background-color: #939aff;
-    margin-top: -10px;
-    margin-bottom: -30px;
+    translate: -30px 0px;
   }
-
-  .the-movie .posterbox {}
 
   .the-movie .inner .posterbox .poster {
     gap: 10px;
@@ -177,11 +175,19 @@ body {
     background-size: cover;
   }
 
+  .the-movie .posterinner {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .the-movie .details {
+    width: auto;
+  }
+
   .the-movie .inner .posterbox .type {
-    top: 80px;
-    padding-right: 30px;
-    font-size: 30px;
-    right: 40px;
+    display: none;
   }
 
   .the-movie .inner .btn-back {
@@ -200,7 +206,34 @@ body {
   .about.about {
     margin: 30px 0px 30px 0px;
     padding: 60px 0px 60px 0px;
+    width: 100%;
+    height: 100%;
   }
+
+  router-view inner {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    height: 100%;
+    gap: 5px;
+    flex-direction: row;
+    padding: 20px 0px 20px 0px;
+  }
+
+  router-view inner .movie .poster a img {
+    width: 150px;
+    height: 210px;
+  }
+
+  router-view inner .movie .delete {
+    width: 150px;
+  }
+
+  .the-movie .btns {
+    justify-content: center;
+    padding-right: 30px;
+  }
+
 }
 
 .header:hover {
@@ -260,12 +293,9 @@ body {
 }
 
 .footer {
-  margin-top: 20px;
-  padding: 20px 20px;
   background-color: var(--color-white-5);
   position: relative;
   bottom: 0;
-  width: 100%;
   z-index: 9;
   display: flex;
   flex-direction: column;
@@ -416,16 +446,6 @@ body {
   transition: .3s;
 }
 
-.movies .movie .info:hover {}
-
-.movies .movie .info .type {
-  display: block;
-  position: absolute;
-  top: 15px;
-  right: 30px;
-  color: var(--color-green);
-}
-
 .movies .movie .info .year {
   display: block;
   position: absolute;
@@ -557,12 +577,15 @@ body {
 }
 
 .the-movie .inner {
-  max-width: 1200px;
+  max-width: 900px;
   background-color: var(--color-white-10);
   border-radius: 30px;
   display: flex;
+  justify-content: start;
+  align-items: center;
   flex-wrap: wrap;
-  padding-bottom: 100px;
+  margin: 30px;
+  padding-bottom: 40px;
 }
 
 .the-movie .posterbox {
@@ -593,8 +616,8 @@ body {
   display: block;
   position: absolute;
   font-family: 'Codystar', cursive;
-  bottom: 60px;
-  right: 160px;
+  top: 120px;
+  left: 420px;
   font-size: 50px;
   font-weight: 900;
   color: var(--color-green);
@@ -631,9 +654,24 @@ body {
 }
 
 .the-movie .details {
-  margin: 0 0 30px;
+  margin: 0 0 0px;
   display: block;
-  width: 500px;
+  max-width: 500px;
+}
+
+.the-movie .posterinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.the-movie .btns {
+  display: flex;
+  /* justify-content: start; */
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding-left: 30px;
 }
 
 .the-movie .details .title {
@@ -686,6 +724,21 @@ body {
   height: 320px;
 }
 
+.the-movie .btn-favorit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 500px;
+  background-color: var(--color-purple);
+  font-size: 25px;
+  font-weight: 900;
+  height: 60px;
+}
+
+.the-movie .btn-favorit:hover {
+  background-color: var(--color-red);
+  color: var(--color-white);
+}
 
 .the-movie .btn-back {
   display: flex;
@@ -693,11 +746,8 @@ body {
   align-items: center;
   border-radius: 500px;
   background-color: var(--color-green);
-  position: absolute;
   font-size: 20px;
   height: 60px;
-  bottom: 70px;
-  left: 160px;
 }
 
 
@@ -831,4 +881,64 @@ body {
   font-weight: 700;
   color: var(--color-white-20);
   text-align: center;
+}
+
+router-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+inner {
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 30px 30px 30px 30px;
+  /* padding: 40px; */
+  gap: 20px;
+  background-color: var(--color-white-5);
+  border-radius: 30px;
+  padding: 30px 30px 30px 30px;
+}
+
+inner .movie {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  margin: 10px;
+  position: relative;
+}
+
+inner .movie .poster a img {
+  width: 200px;
+  height: 300px;
+  border-radius: 30px;
+  background-size: cover;
+}
+
+inner .movie .title {}
+
+inner .movie .delete {
+  border: none;
+  outline: none;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--color-green);
+  border: 2px dotted var(--color-green);
+  font-family: 'Codystar', cursive;
+  background-color: transparent;
+  border-radius: 30px;
+  width: 200px;
+  height: 40px;
+  transition: 0.5s;
+}
+
+inner .movie .delete:hover {
+  color: var(--color-red);
+  border: 2px dotted var(--color-red);
 }

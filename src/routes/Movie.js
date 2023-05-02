@@ -2,6 +2,14 @@ import Component from '../core/Component'
 import movieStore, { getMovieDetails } from '../store/movie'
 
 export default class Movie extends Component {
+  constructor() {
+    super({
+      state: {
+        FM: []
+      }
+    })
+  }
+
   async render() {
     this.el.classList.add('container', 'the-movie')
     this.el.innerHTML = /*html*/ `
@@ -91,48 +99,81 @@ export default class Movie extends Component {
 
     this.el.innerHTML = /*html*/ `
       <div class="inner">
-        <div class="posterbox">
-          <div style="background-image: url(${bigPoster})" class="poster">
-            <div class="type">
-                <p>${movie.Type}</p>
+        <div class="posterinner">
+          <div class="posterbox">
+            <div style="background-image: url(${bigPoster})" class="poster">
+              <div class="type">
+                  <p>${movie.Type}</p>
+              </div>
+            </div>
+            <div class="boxoffice">
+                <h3>BoxOffice : <span>${movie.BoxOffice}</span></h3>
+              </div>
+              <div class="grade">
+                <h3>Average Ratings : ${averageRate}</h3>
+              </div>
+          </div>
+          <div class="details">
+            <div class="title">
+              <h2>${movie.Title}<h2>
+            </div>
+            <div class="plot">
+              <h2><span>SUMMARY<span></h2>
+              ${movie.Plot}
+            </div>
+            <div class="sub-content">
+              <h3>Release Date : <span>${movie.Released}</span></h3>
+              <h3>Runtime : <span>${movie.Runtime}</span> </h3>
+              <h3>Country : <span>${movie.Country}</span></h3>
+              <div class="info">
+                <h3>Awards : <span>${movie.Awards}</span></h3>
+                <h3>Age Rating : <span>${movie.Rated}</span></h3>
+                <h3>Genre : <span>${movie.Genre}</span></h3>
+                <h3>Director : <span>${movie.Director}</span></h3>
+                <h3>Writer : <span>${movie.Writer}</span></h3>
+                <h3>Actors : <span>${movie.Actors}</span></h3>
+              </div>
             </div>
           </div>
-          <div class="boxoffice">
-              <h3>BoxOffice : <span>${movie.BoxOffice}</span></h3>
-            </div>
-            <div class="grade">
-              <h3>Average Ratings : ${averageRate}</h3>
-            </div>
         </div>
-        <div class="details">
-          <div class="title">
-            <h2>${movie.Title}<h2>
-          </div>
-          <div class="plot">
-            <h2><span>SUMMARY<span></h2>
-            ${movie.Plot}
-          </div>
-          <div class="sub-content">
-            <h3>Release Date : <span>${movie.Released}</span></h3>
-            <h3>Runtime : <span>${movie.Runtime}</span> </h3>
-            <h3>Country : <span>${movie.Country}</span></h3>
-            <div class="info">
-              <h3>Awards : <span>${movie.Awards}</span></h3>
-              <h3>Age Rating : <span>${movie.Rated}</span></h3>
-              <h3>Genre : <span>${movie.Genre}</span></h3>
-              <h3>Director : <span>${movie.Director}</span></h3>
-              <h3>Writer : <span>${movie.Writer}</span></h3>
-              <h3>Actors : <span>${movie.Actors}</span></h3>
-            </div>
-          </div>
+        <div class="btns">
+          <button class="btn btn-back" onClick="window.history.back()"><span class="material-symbols-outlined">
+  keyboard_backspace
+  </span></button>
+          <button class="btn btn-favorit"><span id="addmovie" class="material-symbols-outlined">
+  favorite
+  </span></button>
         </div>
-        <button class="btn btn-back" onClick="window.history.back()"><span class="material-symbols-outlined">
-keyboard_backspace
-</span></button>
 
       </div>
       `
-    console.log(movieStore)
+    const btnFavorit = this.el.querySelector('.btn-favorit')
+    const addMovie = this.el.querySelector('#addmovie')
+    let isFavorit = false
+
+    btnFavorit.addEventListener('click', () => {
+      const { movie } = movieStore.state
+      let storedMovies = JSON.parse(localStorage.getItem('favoritMovies')) || []
+
+      if (!isFavorit) {
+        // 영화를 추가하는 경우
+        storedMovies.push(movie)
+        localStorage.setItem('favoritMovies', JSON.stringify(storedMovies))
+        addMovie.textContent = 'heart_check'
+        isFavorit = true
+      } else {
+        // 영화를 삭제하는 경우
+        const updatedStoredMovies = storedMovies.filter(
+          storedMovie => storedMovie.title !== movie.title
+        )
+        localStorage.setItem(
+          'favoritMovies',
+          JSON.stringify(updatedStoredMovies)
+        )
+        addMovie.textContent = 'favorite'
+        isFavorit = false
+      }
+    })
 
     // ratings 요소가 존재하는 경우에만 평가 점수 HTML 추가
     const ratings = this.el.querySelector('.grade') // ratings 요소 선택

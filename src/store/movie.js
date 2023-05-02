@@ -8,7 +8,8 @@ const store = new Store({
   movies: [],
   movie: {},
   loading: false,
-  message: 'SEARCH FOR THE MOVIE TITLE!'
+  message: 'SEARCH FOR THE MOVIE TITLE!',
+  FM: []
 })
 
 export default store
