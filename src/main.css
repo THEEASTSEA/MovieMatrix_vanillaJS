@@ -368,6 +368,15 @@ body {
   align-items: center;
 }
 
+.movie-List .movies a .info {}
+
+.movie-List .movies a .info .year {}
+
+.movie-List .movies a .info .type {
+  color: #7ee787;
+  translate: 50px 0px;
+}
+
 .message {
   margin: 20px;
   box-sizing: border-box;

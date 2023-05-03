@@ -15,15 +15,19 @@ export default class MovieList extends Component {
 
     // favoriteMovies 객체의 속성(프로퍼티) 중 'Title'과 'Poster' 출력하기
     favoriteMovies.forEach(movie => {
+      const posterSrc = movie.Poster
+        ? movie.Poster
+        : 'https://static-00.iconduck.com/assets.00/flying-saucer-emoji-2048x1837-wqaxl6sz.png'
       const movieElement = document.createElement('section')
       movieElement.innerHTML = /*html*/ `
           <div class="poster">
-            <a href="http://localhost:5173/#/movie?id=${movie.imdbID}">
-            <img src="${movie.Poster}" alt="${movie.Title}">
+            <a href="https://stalwart-nougat-119b80.netlify.app/#/movie?id=${movie.imdbID}">
+            <img src="${posterSrc}" alt="${movie.Title}">
             </a>
           </div>
           <button class="delete" data-title="${movie.Title}">delete</button>
       `
+
       movieElement.querySelector('.delete').addEventListener('click', event => {
         const title = event.target.dataset.title
         const index = favoriteMovies.findIndex(movie => movie.Title === title)
